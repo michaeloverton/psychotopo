@@ -5,14 +5,21 @@ using FMOD.Studio;
 
 public class AmbienceManager : MonoBehaviour
 {
+    [SerializeField] private bool playAmbience;
     [SerializeField] private string ambienceEventName;
     EventInstance ambienceInstance;
+    [SerializeField] private bool playMusic;
+    [SerializeField] private string musicEventName;
+    EventInstance musicInstance;
 
     // Start is called before the first frame update
     void Start()
     {
         ambienceInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + ambienceEventName);
-        ambienceInstance.start();       
+        if(playAmbience) ambienceInstance.start();
+
+        musicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + musicEventName);
+        if(playMusic) musicInstance.start();  
     }
 
 }
