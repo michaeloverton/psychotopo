@@ -20,31 +20,20 @@
 	<object class="MixerBusEffectChain" id="{b3d9b04b-1033-41b8-91ad-4a0cc4c81b42}">
 		<relationship name="effects">
 			<destination>{13fe34d0-bd67-41ff-ac84-43692e830cea}</destination>
-			<destination>{22c6376e-efce-4a47-bc30-242b7ec34b65}</destination>
-			<destination>{90da39d3-24c7-403b-82c2-2359919ce188}</destination>
-			<destination>{fb1fa3c4-df1e-4118-add0-d35968a0f916}</destination>
+			<destination>{c5eb5fe8-cb30-46e8-92c7-774f351e2809}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{70563451-81b5-42e3-9712-3ae7f71d9734}" />
 	<object class="MixerBusFader" id="{13fe34d0-bd67-41ff-ac84-43692e830cea}" />
-	<object class="MultibandEqEffect" id="{22c6376e-efce-4a47-bc30-242b7ec34b65}">
-		<property name="filterTypeA">
-			<value>2</value>
+	<object class="MixerSend" id="{c5eb5fe8-cb30-46e8-92c7-774f351e2809}">
+		<property name="level">
+			<value>-3</value>
 		</property>
-		<property name="frequencyA">
-			<value>1046.37341</value>
+		<property name="inputFormat">
+			<value>1</value>
 		</property>
-		<property name="qualityA">
-			<value>0.910125613</value>
-		</property>
-	</object>
-	<object class="DelayEffect" id="{90da39d3-24c7-403b-82c2-2359919ce188}" />
-	<object class="SFXReverbEffect" id="{fb1fa3c4-df1e-4118-add0-d35968a0f916}">
-		<property name="decayTime">
-			<value>2100</value>
-		</property>
-		<property name="wetLevel">
-			<value>0</value>
-		</property>
+		<relationship name="mixerReturn">
+			<destination>{0daed2fe-8a2c-42bd-8d9a-94b71cba224a}</destination>
+		</relationship>
 	</object>
 </objects>
