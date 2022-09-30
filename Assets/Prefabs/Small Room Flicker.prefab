@@ -44,9 +44,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8160624, b: 0.66576815, a: 1}
-  m_Intensity: 0.16
-  m_Range: 94.3987
+  m_Color: {r: 1, g: 0, b: 0.009994984, a: 1}
+  m_Intensity: 0.4
+  m_Range: 110.9
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -108,6 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 0}
-  minIntensity: 0
-  maxIntensity: 0.7
+  minIntensity: 0.2
+  maxIntensity: 0.3
   smoothing: 5

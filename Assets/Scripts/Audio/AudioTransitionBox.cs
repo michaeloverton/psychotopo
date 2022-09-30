@@ -5,26 +5,25 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class AudioTransitionBox : MonoBehaviour
 {
+    [SerializeField] AmbienceManager ambienceManager;
+    [SerializeField] string parameterName;
+    [SerializeField] bool invert;
     private BoxCollider collider;
+    private float minZ;
+    private float maxZ;
 
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<BoxCollider>();
-    }
-    
-    void OnTriggerEnter(Collider other) 
-    {
-        Debug.Log("thihng");
+        minZ = transform.position.z - collider.size.z/2;
+        maxZ = transform.position.z + collider.size.z/2;
     }
 
     void OnTriggerStay(Collider other)
     {
-        Debug.Log(Time.frameCount);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        Debug.Log("thihng");
+        float paramValue = Utility.Remap(other.transform.position.z, minZ, maxZ, 0, 1);
+        if(invert) paramValue = Utility.Remap(other.transform.position.z, minZ, maxZ, 1, 0);
+        ambienceManager.SetMusicParameter(parameterName, paramValue);
     }
 }

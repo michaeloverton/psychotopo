@@ -19,7 +19,11 @@ public class AmbienceManager : MonoBehaviour
         if(playAmbience) ambienceInstance.start();
 
         musicInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + musicEventName);
-        if(playMusic) musicInstance.start();  
+        if(playMusic) musicInstance.start();
+    }
+
+    public void SetMusicParameter(string parameter, float value) {
+        musicInstance.setParameterByName(parameter, value);
     }
 
 }
