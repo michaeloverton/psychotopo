@@ -2259,8 +2259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba91f591699df0479c75360a5139f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraB: {fileID: 1007042020}
-  cameraMatB: {fileID: 2100000, guid: 1a48202e4be935f4db5d533ec826f35a, type: 2}
+  portalCameras:
+  - {fileID: 1007042020}
+  portalMaterials:
+  - {fileID: 2100000, guid: 1a48202e4be935f4db5d533ec826f35a, type: 2}
 --- !u!1 &683675891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,7 +3157,7 @@ Camera:
   field of view: 85
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -4019,6 +4021,10 @@ PrefabInstance:
       propertyPath: playerAudio
       value: 
       objectReference: {fileID: 1941631459}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_UseFovKick
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: jumpSoundEvent
       value: 
