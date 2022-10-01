@@ -242,6 +242,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_MouseLook.LookRotation(transform, m_Camera.transform, xRot, yRot);
         }
 
+        public void RotateCharacterAdditional(float xRot, float yRot)
+        {
+            float currentYRot = transform.rotation.eulerAngles.y;
+            // This is a bad hack to get the X rotation of the camera.
+            // transform.GetChild(0).transform.rotation.eulerAngles.x;
+            float currentXRot = -transform.GetChild(0).transform.rotation.eulerAngles.x;
+            m_MouseLook.LookRotation(transform, m_Camera.transform, currentXRot + xRot, currentYRot + yRot);
+        }
+
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
