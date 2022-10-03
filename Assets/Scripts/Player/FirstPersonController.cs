@@ -28,8 +28,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         [SerializeField] private AudioPlayer playerAudio;
 
-        // Flashlight
+        // Flashlight and cig
         [SerializeField] private Light flashLight;
+        [SerializeField] private GameObject cig;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -85,7 +86,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (Input.GetKeyUp(KeyCode.F))
             {
-                flashLight.enabled = !flashLight.enabled;
+                // flashLight.enabled = !flashLight.enabled;
+                cig.SetActive(!cig.active);
             }
         }
 
