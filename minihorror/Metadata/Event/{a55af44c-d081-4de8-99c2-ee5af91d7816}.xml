@@ -280,6 +280,9 @@
 		</relationship>
 	</object>
 	<object class="MultibandEqEffect" id="{23a3b1d7-6e73-4763-b7b5-d02bd9a7a824}">
+		<property name="filterTypeA">
+			<value>2</value>
+		</property>
 		<relationship name="automators">
 			<destination>{4ae876d7-e8c3-4d29-b081-34275dc00535}</destination>
 		</relationship>
@@ -295,6 +298,9 @@
 		</relationship>
 	</object>
 	<object class="MultibandEqEffect" id="{a92b6dc1-7e43-439e-91e1-6f4786acbb6d}">
+		<property name="filterTypeA">
+			<value>2</value>
+		</property>
 		<property name="frequencyA">
 			<value>950</value>
 		</property>
