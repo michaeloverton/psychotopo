@@ -8,6 +8,7 @@ public class AudioTransitionBox : MonoBehaviour
     [SerializeField] AmbienceManager ambienceManager;
     [SerializeField] string parameterName;
     [SerializeField] float initialValue = 0f;
+    [SerializeField] float maxValue = 1f;
     [SerializeField] bool invert;
     [SerializeField] bool modulateCrowd;
     [SerializeField] bool modulateTraffic;
@@ -34,13 +35,13 @@ public class AudioTransitionBox : MonoBehaviour
     {
         float paramValue;
         if(xModulation) {
-            paramValue = Utility.Remap(other.transform.position.x, minX, maxX, initialValue, 1);
-            if(invert) paramValue = Utility.Remap(other.transform.position.x, minX, maxX, 1, initialValue);
+            paramValue = Utility.Remap(other.transform.position.x, minX, maxX, initialValue, maxValue);
+            if(invert) paramValue = Utility.Remap(other.transform.position.x, minX, maxX, maxValue, initialValue);
         }
         else
         {
-            paramValue = Utility.Remap(other.transform.position.z, minZ, maxZ, initialValue, 1);
-            if(invert) paramValue = Utility.Remap(other.transform.position.z, minZ, maxZ, 1, initialValue);
+            paramValue = Utility.Remap(other.transform.position.z, minZ, maxZ, initialValue, maxValue);
+            if(invert) paramValue = Utility.Remap(other.transform.position.z, minZ, maxZ, maxValue, initialValue);
         }
         
         if(modulateCrowd) ambienceManager.SetCrowdParameter(parameterName, paramValue);
