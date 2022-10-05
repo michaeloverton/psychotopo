@@ -28,9 +28,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         [SerializeField] private AudioPlayer playerAudio;
 
-        // Flashlight and cig
-        [SerializeField] private Light flashLight;
+        // Cig
         [SerializeField] private GameObject cig;
+        [SerializeField] private MindManager mindManager;
 
         private Camera m_Camera;
         private bool m_Jump;
@@ -84,10 +84,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
+            // Manage cig.
             if (Input.GetKeyUp(KeyCode.F))
             {
-                // flashLight.enabled = !flashLight.enabled;
                 cig.SetActive(!cig.active);
+            }
+
+            if(cig.active) 
+            {
+                mindManager.gainMind(mindManager.getSmokingMindAmount());
             }
         }
 
