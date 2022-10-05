@@ -488,7 +488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 99071784}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Meter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11146,6 +11146,11 @@ MonoBehaviour:
   smokingMindAmount: 5
   partyingMindAmount: 3
   mindMeter: {fileID: 99071783}
+  maxAbberation: 1
+  minAbberation: 0.3
+  maxLensDistortion: 70
+  maxBloom: 30
+  minBloom: 3
 --- !u!4 &874643354
 Transform:
   m_ObjectHideFlags: 0
