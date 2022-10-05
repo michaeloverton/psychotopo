@@ -22,6 +22,12 @@ public class MindManager : MonoBehaviour
     Bloom bloom;
     [SerializeField] float maxBloom = 20f;
     [SerializeField] float minBloom = 3f;
+    ColorGrading colorGrading;
+    [SerializeField] float temp = -100f;
+    [SerializeField] float tint = 100f;
+    [SerializeField] float postExposure = 2.7f;
+    [SerializeField] float hueShift = 103f;
+    [SerializeField] float saturation = 6.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +47,16 @@ public class MindManager : MonoBehaviour
         bloom.enabled.Override(true);
         bloom.intensity.Override(minBloom);
 
+        colorGrading = ScriptableObject.CreateInstance<ColorGrading>();
+        colorGrading.enabled.Override(false);
+        colorGrading.temperature.Override(temp);
+        colorGrading.tint.Override(tint);
+        colorGrading.postExposure.Override(postExposure);
+        colorGrading.hueShift.Override(hueShift);
+        colorGrading.saturation.Override(saturation);
+
         // Use the QuickVolume method to create a volume with a priority of 100, and assign the vignette to this volume
-        processVolume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, abberation, lensDistortion, bloom);
+        processVolume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, abberation, lensDistortion, bloom, colorGrading);
     }
 
     public void loseMind(float loseAmount)

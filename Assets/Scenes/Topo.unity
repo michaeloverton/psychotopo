@@ -489,7 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 99071784}
   m_Layer: 5
-  m_Name: Meter
+  m_Name: MindMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11148,9 +11148,14 @@ MonoBehaviour:
   mindMeter: {fileID: 99071783}
   maxAbberation: 1
   minAbberation: 0.3
-  maxLensDistortion: 70
+  maxLensDistortion: 80
   maxBloom: 30
-  minBloom: 3
+  minBloom: 4
+  temp: -100
+  tint: 100
+  postExposure: 2.7
+  hueShift: 103
+  saturation: 6.3
 --- !u!4 &874643354
 Transform:
   m_ObjectHideFlags: 0
@@ -21922,7 +21927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1698978359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25676,7 +25681,7 @@ GameObject:
   - component: {fileID: 3469287838196263523}
   - component: {fileID: 1711813854403862185}
   m_Layer: 5
-  m_Name: Mind
+  m_Name: MindText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
