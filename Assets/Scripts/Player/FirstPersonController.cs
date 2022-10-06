@@ -94,6 +94,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 mindManager.gainMind(mindManager.getSmokingMindAmount());
             }
+
+            if (Input.GetKeyUp(KeyCode.G))
+            {
+                mindManager.TakeChem();
+            }
         }
 
 
