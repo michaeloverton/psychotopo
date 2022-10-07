@@ -5695,9 +5695,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playAmbience: 1
   ambienceEventName: ambience
-  playMusic: 1
-  musicEventName: music
   trafficEventName: traffic
+  playMusic: 1
+  technoMusicEventName: technoMusic
+  houseMusicEventName: houseMusic
+  weirdMusicEventName: weirdMusic
 --- !u!1 &719293367
 GameObject:
   m_ObjectHideFlags: 0
@@ -11351,8 +11353,8 @@ MonoBehaviour:
   mindMeter: {fileID: 99071783}
   chemMeter: {fileID: 134937895}
   maxChem: 100
-  chemDecay: 10
-  chemBuild: 40
+  chemDecay: 15
+  chemBuild: 65
   maxAbberation: 1
   minAbberation: 0.3
   maxLensDistortion: 80
@@ -19896,7 +19898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ambienceManager: {fileID: 708715095}
-  parameterName: technoVolume
+  parameterName: weirdVolume
   initialValue: 0
   maxValue: 1
   invert: 1
