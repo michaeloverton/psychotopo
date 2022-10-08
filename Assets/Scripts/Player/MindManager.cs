@@ -5,6 +5,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class MindManager : MonoBehaviour
 {
+    [SerializeField] bool activate;
     [SerializeField] float maxMind = 100f;
     private float currentMind;
     [SerializeField] float smokingMindAmount = 5f;
@@ -100,16 +101,22 @@ public class MindManager : MonoBehaviour
 
     public void loseMind(float loseAmount)
     {
-        currentMind = Mathf.Clamp(currentMind - (loseAmount * Time.deltaTime), 0, maxMind);
-        adjustMindMeter();
-        adjustProcessing();
+        if(activate)
+        {
+            currentMind = Mathf.Clamp(currentMind - (loseAmount * Time.deltaTime), 0, maxMind);
+            adjustMindMeter();
+            adjustProcessing();
+        }
     }
 
     public void gainMind(float gainAmount)
     {
-        currentMind = Mathf.Clamp(currentMind + (gainAmount * Time.deltaTime), 0, maxMind);
-        adjustMindMeter();
-        adjustProcessing();
+        if(activate)
+        {
+            currentMind = Mathf.Clamp(currentMind + (gainAmount * Time.deltaTime), 0, maxMind);
+            adjustMindMeter();
+            adjustProcessing();
+        }
     }
 
     public float getSmokingMindAmount()

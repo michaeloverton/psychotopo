@@ -14,17 +14,31 @@ public class PortalCamera : MonoBehaviour
         Vector3 playerOffsetFromPortal = playerCamera.position - otherPortal.position;
         // transform.position = portal.position - playerOffsetFromPortal;
 
-        // Hack: Force Y to be correct because of jumping.
-        transform.position = new Vector3(
-            portal.position.x - playerOffsetFromPortal.x, 
-            portal.position.y + playerOffsetFromPortal.y, 
-            portal.position.z - playerOffsetFromPortal.z
-        );
-
         float angularDiffBetweenPortalRotation = Quaternion.Angle(portal.rotation, otherPortal.rotation);
-        
         Quaternion portalRotationalDifference = Quaternion.AngleAxis(angularDiffBetweenPortalRotation, Vector3.up);
-        Vector3 newCameraDirection = portalRotationalDifference * playerCamera.forward;
+
+        Vector3 directionalPlayerOffsetFromPortal = portalRotationalDifference * playerOffsetFromPortal;
+
+        // HACK: For some reason, when angle is >= 180, we must add.
+        if(portalRotationalDifference.eulerAngles.y >= 180) 
+        {
+            transform.position = new Vector3(
+                portal.position.x + directionalPlayerOffsetFromPortal.x,
+                portal.position.y + directionalPlayerOffsetFromPortal.y,
+                portal.position.z + directionalPlayerOffsetFromPortal.z
+            );
+        }
+        else
+        {
+            transform.position = new Vector3(
+                portal.position.x - directionalPlayerOffsetFromPortal.x,
+                portal.position.y + directionalPlayerOffsetFromPortal.y, // Always add in case of jumping.
+                portal.position.z - directionalPlayerOffsetFromPortal.z
+            );
+        }
+
+        Vector3 newCameraDirection = Quaternion.AngleAxis(-angularDiffBetweenPortalRotation, Vector3.up) * playerCamera.forward;
         transform.rotation = Quaternion.LookRotation(newCameraDirection, Vector3.up);
+
     }
 }
