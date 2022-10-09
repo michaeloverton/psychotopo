@@ -124,11 +124,6 @@ public class MindManager : MonoBehaviour
         return smokingMindAmount;
     }
 
-    public float getPartyingMindAmount()
-    {
-        return partyingMindAmount;
-    }
-
     private void adjustMindMeter()
     {
         float newMeterYScale = Utility.Remap(currentMind, 0, maxMind, 0, 1);

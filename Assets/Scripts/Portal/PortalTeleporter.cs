@@ -29,7 +29,6 @@ public class PortalTeleporter : MonoBehaviour
 
                 Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
                 player.position = receiver.position + positionOffset;
-                Debug.Log("teleporting to: " + player.position);
             }
 
             // Only allow one teleportation attempt per trigger.
