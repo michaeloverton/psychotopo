@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8807fd5ab25cfb14dab4c3c518142c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneIndex: 1
 --- !u!4 &71888985
 Transform:
   m_ObjectHideFlags: 0
@@ -703,7 +704,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 71888984}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: GoToScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

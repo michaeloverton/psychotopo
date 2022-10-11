@@ -8,8 +8,6 @@ public class AmbienceManager : MonoBehaviour
     [SerializeField] private bool playAmbience;
     [SerializeField] private string ambienceEventName;
     EventInstance ambienceInstance;
-    // [SerializeField] private string musicEventName;
-    // EventInstance musicInstance;
     [SerializeField] private string trafficEventName;
     EventInstance trafficInstance;
 
@@ -65,5 +63,23 @@ public class AmbienceManager : MonoBehaviour
 
     public void SetTrafficParameter(string parameter, float value) {
         trafficInstance.setParameterByName(parameter, value);
+    }
+
+    public void StopMusic()
+    {
+        ambienceInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        ambienceInstance.release();
+        
+        trafficInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        trafficInstance.release();
+        
+        technoMusic.stop(STOP_MODE.ALLOWFADEOUT);
+        technoMusic.release();
+        
+        houseMusic.stop(STOP_MODE.ALLOWFADEOUT);
+        houseMusic.release();
+        
+        weirdMusic.stop(STOP_MODE.ALLOWFADEOUT);
+        weirdMusic.release();
     }
 }

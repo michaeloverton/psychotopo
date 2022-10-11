@@ -32,6 +32,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private GameObject cig;
         [SerializeField] private MindManager mindManager;
 
+        // PauseManager
+        [SerializeField] PauseManager pauseManager;
+        private bool paused = false;
+
         private Camera m_Camera;
         private bool m_Jump;
         private float m_YRotation;
@@ -44,6 +48,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
+
+        private void Awake()
+        {
+            pauseManager.OnPausePressed += onPausePressed;
+        }
 
         // Use this for initialization
         private void Start()
@@ -59,10 +68,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
 
+        private void onPausePressed(bool val)
+        {
+            paused = val;
+        }
 
         // Update is called once per frame
         private void Update()
         {
+            if(paused) return;
+
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -110,6 +125,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void FixedUpdate()
         {
+            if(paused) return;
+
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
