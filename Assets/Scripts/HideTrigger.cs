@@ -5,6 +5,7 @@ using UnityEngine;
 public class HideTrigger : MonoBehaviour
 {
     [SerializeField] bool hide;
+    [SerializeField] bool hideOnExit = false;
     [SerializeField] List<GameObject> things = new List<GameObject>();
 
     void OnTriggerEnter(Collider other) {
@@ -17,6 +18,17 @@ public class HideTrigger : MonoBehaviour
             else
             {
                 thing.SetActive(true);
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(hideOnExit)
+        {
+            foreach(GameObject thing in things)
+            {
+                thing.SetActive(false);
             }
         }
     }
