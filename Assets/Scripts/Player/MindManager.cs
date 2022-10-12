@@ -6,6 +6,7 @@ using UnityEngine.Rendering.PostProcessing;
 public class MindManager : MonoBehaviour
 {
     [SerializeField] PauseManager pauseManager;
+    [SerializeField] AudioManager audioManager;
     [SerializeField] bool activate;
     [SerializeField] float maxMind = 100f;
     private float currentMind;
@@ -80,6 +81,7 @@ public class MindManager : MonoBehaviour
             currentChem = Mathf.Clamp(currentChem + (chemBuild * Time.deltaTime), 0, maxChem);
             adjustChemMeter();
             adjustProcessing();
+            adjustAudio();
 
             if(currentChem == maxChem)
             {
@@ -93,6 +95,7 @@ public class MindManager : MonoBehaviour
             currentChem = Mathf.Clamp(currentChem - (chemDecay * Time.deltaTime), 0, maxChem);
             adjustChemMeter();
             adjustProcessing();
+            adjustAudio();
 
             if(currentChem == 0)
             {
@@ -139,6 +142,12 @@ public class MindManager : MonoBehaviour
         float newMeterYScale = Utility.Remap(currentChem, 0, maxChem, 0, 1);
         Vector3 currentMeterScale = chemMeter.transform.localScale;
         chemMeter.transform.localScale = new Vector3(currentMeterScale.x, newMeterYScale, currentMeterScale.z);
+    }
+
+    private void adjustAudio()
+    {
+        float normalizedChemValue = Utility.Remap(currentChem, 0, maxChem, 0, 1);
+        audioManager.SetMasterPhaser(normalizedChemValue);
     }
 
     public void TakeChem()

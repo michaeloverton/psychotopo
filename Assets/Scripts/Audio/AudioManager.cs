@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
     
     [SerializeField] private string masterFilterParam;
     [SerializeField] private float minMasterFilter;
+    [SerializeField] private string masterPhaserParam;
+    [SerializeField] private bool masterPhaserOn;
 
     void Start()
     {
@@ -27,6 +29,14 @@ public class AudioManager : MonoBehaviour
             FMOD.RESULT result = FMODUnity.RuntimeManager.StudioSystem.setParameterByName(masterFilterParam, 1);
             if(result != FMOD.RESULT.OK) Debug.LogError(result);
         }
+    }
+
+    public void SetMasterPhaser(float val)
+    {
+        if(!masterPhaserOn) return;
+        
+        FMOD.RESULT result = FMODUnity.RuntimeManager.StudioSystem.setParameterByName(masterPhaserParam, val);
+        if(result != FMOD.RESULT.OK) Debug.LogError(result);
     }
 
     public void ResetMasterFilter()

@@ -8338,6 +8338,8 @@ MonoBehaviour:
   stepSurfaceParam: stepSurface
   masterFilterParam: masterFilter
   minMasterFilter: 0.5
+  masterPhaserParam: masterPhaser
+  masterPhaserOn: 1
 --- !u!4 &708715093
 Transform:
   m_ObjectHideFlags: 0
@@ -14549,6 +14551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseManager: {fileID: 9086272463841259144}
+  audioManager: {fileID: 708715092}
   activate: 1
   maxMind: 100
   smokingMindAmount: 10
