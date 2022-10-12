@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.49542248, g: 0.07603226, b: 0.056758456, a: 1}
+  m_IndirectSpecularColor: {r: 0.4954995, g: 0.07607598, b: 0.056599088, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1215,7 +1215,7 @@ MonoBehaviour:
   - {fileID: 1156208139}
   - {fileID: 601106351}
   - {fileID: 1886765350}
-  lightChangeTime: 0.5
+  lightChangeTime: 0.3
 --- !u!1001 &137689901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7442,7 +7442,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c65ecece677a84458a099390f4d0b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseManager: {fileID: 9086272463841259144}
   stepSurfaceParam: stepSurface
+  masterFilterParam: masterFilter
+  minMasterFilter: 0.5
 --- !u!4 &708715093
 Transform:
   m_ObjectHideFlags: 0
@@ -13278,6 +13281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c539eff6bb3198459c26d9d2f5cc88a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseManager: {fileID: 9086272463841259144}
   activate: 1
   maxMind: 100
   smokingMindAmount: 10
@@ -22011,15 +22015,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 62.1
+      value: -58.7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 53.4
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -81.7
+      value: -20.8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22027,7 +22031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.y
@@ -22035,7 +22039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -37947,13 +37951,61 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1078455185}
+      objectReference: {fileID: 708715095}
     - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 708715095}
+      objectReference: {fileID: 708715092}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1078455185}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ResetMasterFilter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: GoToScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AmbienceManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MainMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683830654876542681, guid: cc2153857c746454b874341e9ccef042, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8683830654876542683, guid: cc2153857c746454b874341e9ccef042, type: 3}
       propertyPath: m_Name
       value: Menu

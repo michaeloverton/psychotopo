@@ -5,6 +5,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class MindManager : MonoBehaviour
 {
+    [SerializeField] PauseManager pauseManager;
     [SerializeField] bool activate;
     [SerializeField] float maxMind = 100f;
     private float currentMind;
@@ -71,6 +72,8 @@ public class MindManager : MonoBehaviour
 
     void Update()
     {
+        if(pauseManager.GetPaused()) return;
+
         // Tookchem 
         if(tookChem) 
         {
@@ -101,7 +104,7 @@ public class MindManager : MonoBehaviour
 
     public void loseMind(float loseAmount)
     {
-        if(activate)
+        if(activate && !pauseManager.GetPaused())
         {
             currentMind = Mathf.Clamp(currentMind - (loseAmount * Time.deltaTime), 0, maxMind);
             adjustMindMeter();
@@ -111,7 +114,7 @@ public class MindManager : MonoBehaviour
 
     public void gainMind(float gainAmount)
     {
-        if(activate)
+        if(activate && !pauseManager.GetPaused())
         {
             currentMind = Mathf.Clamp(currentMind + (gainAmount * Time.deltaTime), 0, maxMind);
             adjustMindMeter();

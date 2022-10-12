@@ -27,4 +27,9 @@ public class PauseManager : MonoBehaviour
 
         if(OnPausePressed != null) OnPausePressed(paused);
     }
+
+    public bool GetPaused()
+    {
+        return paused;
+    }
 }

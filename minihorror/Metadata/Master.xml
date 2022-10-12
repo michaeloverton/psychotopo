@@ -17,6 +17,7 @@
 	<object class="MixerBusEffectChain" id="{9dbfc334-e5a7-4803-8564-03a185d5b453}">
 		<relationship name="effects">
 			<destination>{2691ac6a-bffd-455f-ba60-b7ec477d80da}</destination>
+			<destination>{a307f53d-751d-4035-88dd-78c6853c00cd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{79b80960-5394-4404-8a1c-d979a1e16f76}">
@@ -25,4 +26,54 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{2691ac6a-bffd-455f-ba60-b7ec477d80da}" />
+	<object class="MultibandEqEffect" id="{a307f53d-751d-4035-88dd-78c6853c00cd}">
+		<property name="filterTypeA">
+			<value>2</value>
+		</property>
+		<property name="frequencyA">
+			<value>22000</value>
+		</property>
+		<property name="qualityA">
+			<value>0.539999962</value>
+		</property>
+		<relationship name="automators">
+			<destination>{3a4fc3cd-228c-4166-a2d0-cc2795c47dd3}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{3a4fc3cd-228c-4166-a2d0-cc2795c47dd3}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>frequencyA</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{f36968db-283f-46cc-beef-d83789ddf07a}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{f36968db-283f-46cc-beef-d83789ddf07a}">
+		<relationship name="parameter">
+			<destination>{40310397-07b2-434f-b896-ea06ecd1ec4b}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{846302ba-c30b-4d66-ad76-08b997ee274f}</destination>
+			<destination>{59cba7d8-f49c-4d51-bfe7-02860583bc4d}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{846302ba-c30b-4d66-ad76-08b997ee274f}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>20</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.0287339017</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{59cba7d8-f49c-4d51-bfe7-02860583bc4d}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>22000</value>
+		</property>
+	</object>
 </objects>
