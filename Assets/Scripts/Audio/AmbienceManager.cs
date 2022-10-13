@@ -67,19 +67,19 @@ public class AmbienceManager : MonoBehaviour
 
     public void StopMusic()
     {
-        ambienceInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        ambienceInstance.stop(STOP_MODE.IMMEDIATE);
         ambienceInstance.release();
         
-        trafficInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        trafficInstance.stop(STOP_MODE.IMMEDIATE);
         trafficInstance.release();
         
-        technoMusic.stop(STOP_MODE.ALLOWFADEOUT);
+        technoMusic.stop(STOP_MODE.IMMEDIATE);
         technoMusic.release();
         
-        houseMusic.stop(STOP_MODE.ALLOWFADEOUT);
+        houseMusic.stop(STOP_MODE.IMMEDIATE);
         houseMusic.release();
         
-        weirdMusic.stop(STOP_MODE.ALLOWFADEOUT);
+        weirdMusic.stop(STOP_MODE.IMMEDIATE);
         weirdMusic.release();
     }
 }
