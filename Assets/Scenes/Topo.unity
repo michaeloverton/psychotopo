@@ -35034,6 +35034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textManager: {fileID: 54421852}
   text: I need a fuckin cig...
+  displaySpeed: 0.05
 --- !u!65 &1715979517
 BoxCollider:
   m_ObjectHideFlags: 0
