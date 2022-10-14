@@ -16111,7 +16111,7 @@ MonoBehaviour:
   chemDecay: 15
   chemBuild: 65
   maxAbberation: 1
-  minAbberation: 0.3
+  minAbberation: 0.5
   maxLensDistortion: 80
   maxBloom: 30
   minBloom: 5

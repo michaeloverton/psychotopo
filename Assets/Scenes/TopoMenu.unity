@@ -973,6 +973,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickEvent:
+    Guid:
+      Data1: -59968202
+      Data2: 1234782757
+      Data3: -432572284
+      Data4: 1319073003
+    Path: event:/buttonClick
+  hoverEvent:
+    Guid:
+      Data1: -410659093
+      Data2: 1287429705
+      Data3: 1100809635
+      Data4: 2002283253
+    Path: event:/buttonHover
   button: {fileID: 4013618023117783739}
   mouseOverScale: 2
 --- !u!1001 &126521721
@@ -10523,6 +10537,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickEvent:
+    Guid:
+      Data1: -59968202
+      Data2: 1234782757
+      Data3: -432572284
+      Data4: 1319073003
+    Path: event:/buttonClick
+  hoverEvent:
+    Guid:
+      Data1: -410659093
+      Data2: 1287429705
+      Data3: 1100809635
+      Data4: 2002283253
+    Path: event:/buttonHover
   button: {fileID: 3289605383956584433}
   mouseOverScale: 2
 --- !u!1 &1821022142 stripped
