@@ -6,10 +6,13 @@ using FMOD.Studio;
 public class AmbienceManager : MonoBehaviour
 {
     [SerializeField] private bool playAmbience;
+    [SerializeField] private bool playTraffic;
     [SerializeField] private string ambienceEventName;
     EventInstance ambienceInstance;
     [SerializeField] private string trafficEventName;
     EventInstance trafficInstance;
+    [SerializeField] private string birdsEventName;
+    EventInstance birdsInstance;
 
     // Music Events
     [SerializeField] private bool playMusic;
@@ -27,7 +30,10 @@ public class AmbienceManager : MonoBehaviour
         if(playAmbience) ambienceInstance.start();
 
         trafficInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + trafficEventName);
-        trafficInstance.start();
+        if(playTraffic) trafficInstance.start();
+
+        birdsInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + birdsEventName);
+        birdsInstance.start();
 
         technoMusic = FMODUnity.RuntimeManager.CreateInstance("event:/" + technoMusicEventName);
         if(playMusic) technoMusic.start();
@@ -65,6 +71,10 @@ public class AmbienceManager : MonoBehaviour
         trafficInstance.setParameterByName(parameter, value);
     }
 
+    public void SetBirdsParameter(string parameter, float value) {
+        birdsInstance.setParameterByName(parameter, value);
+    }
+
     public void StopMusic()
     {
         ambienceInstance.stop(STOP_MODE.IMMEDIATE);
@@ -72,6 +82,9 @@ public class AmbienceManager : MonoBehaviour
         
         trafficInstance.stop(STOP_MODE.IMMEDIATE);
         trafficInstance.release();
+
+        birdsInstance.stop(STOP_MODE.IMMEDIATE);
+        birdsInstance.release();
         
         technoMusic.stop(STOP_MODE.IMMEDIATE);
         technoMusic.release();
