@@ -42,4 +42,10 @@ public class ButtonCollider : MonoBehaviour
         onClick.Invoke();
         FMODUnity.RuntimeManager.PlayOneShot(clickEvent);
     }
+
+    void OnDisable()
+    {
+        button.transform.localScale = initialScale;
+        hoverSoundPlayed = false;
+    }
 }
