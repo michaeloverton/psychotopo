@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private int sceneIndex;
+    [SerializeField] private GameObject mainButtons;
+    [SerializeField] private GameObject infoButtons;
+    [SerializeField] private GameObject creditsCanvas;
 
     public void GoToScene() {
         StartCoroutine(load());
@@ -24,6 +27,20 @@ public class MainMenu : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    public void ShowInfo()
+    {
+        mainButtons.SetActive(false);
+        infoButtons.SetActive(true);
+        creditsCanvas.SetActive(true);
+    }
+
+    public void ShowMain()
+    {
+        mainButtons.SetActive(true);
+        infoButtons.SetActive(false);
+        creditsCanvas.SetActive(false);
     }
 
     public void Quit() {
