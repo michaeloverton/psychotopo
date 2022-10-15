@@ -156,6 +156,11 @@ public class MindManager : MonoBehaviour
         chemMeter.SetActive(true);
     }
 
+    public void SetAbberation(float val)
+    {
+        abberation.intensity.Override(val);
+    }
+
     private void adjustProcessing()
     {
         float newAbberation = Utility.Remap(currentMind, maxMind, 0, minAbberation, maxAbberation);

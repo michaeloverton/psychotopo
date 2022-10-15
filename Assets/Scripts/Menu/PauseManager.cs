@@ -8,6 +8,8 @@ public class PauseManager : MonoBehaviour
     public delegate void PauseEvent(bool paused);
     public event PauseEvent OnPausePressed;
     private bool paused = false;
+    public delegate void SensitivityChangeEvent(float val);
+    public event SensitivityChangeEvent OnSensitivityChanged;
 
     // Update is called once per frame
     void Update()
@@ -31,5 +33,10 @@ public class PauseManager : MonoBehaviour
     public bool GetPaused()
     {
         return paused;
+    }
+
+    public void ChangeSensitivity(float val)
+    {
+        if(OnSensitivityChanged != null) OnSensitivityChanged(val);
     }
 }
