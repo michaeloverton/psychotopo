@@ -52,6 +52,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Awake()
         {
             pauseManager.OnPausePressed += onPausePressed;
+            pauseManager.OnSensitivityChanged += onSensitivityChanged;
         }
 
         // Use this for initialization
@@ -71,6 +72,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void onPausePressed(bool val)
         {
             paused = val;
+        }
+
+        private void onSensitivityChanged(float val)
+        {
+            m_MouseLook.XSensitivity = val;
+            m_MouseLook.YSensitivity = val;
         }
 
         // Update is called once per frame

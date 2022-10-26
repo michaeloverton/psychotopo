@@ -6,14 +6,17 @@ public class AudioReverbZoneTrigger : MonoBehaviour
 {
     [SerializeField] private AudioReverbManager reverbManager;
     [SerializeField] private bool exitTrigger;
+    [SerializeField] private bool stopReverb;
 
     void OnTriggerEnter(Collider other)
     {
-        reverbManager.StartBasicReverb();
+        if(!stopReverb) reverbManager.StartBasicReverb();
+        else reverbManager.StopBasicReverb();
     }
 
     void OnTriggerExit(Collider other)
     {
-        if(exitTrigger) reverbManager.StopBasicReverb();
+        if(exitTrigger && !stopReverb) reverbManager.StopBasicReverb();
+        else if(exitTrigger && stopReverb) reverbManager.StartBasicReverb();
     }
 }

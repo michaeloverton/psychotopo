@@ -12,6 +12,7 @@ public class AudioTransitionBox : MonoBehaviour
     [SerializeField] bool invert;
     [SerializeField] bool modulateCrowd;
     [SerializeField] bool modulateTraffic;
+    [SerializeField] bool modulateBirds;
     [SerializeField] bool modulateMusic;
     [SerializeField] bool xModulation;
     [SerializeField] bool yModulation;
@@ -58,5 +59,6 @@ public class AudioTransitionBox : MonoBehaviour
         if(modulateCrowd) ambienceManager.SetCrowdParameter(parameterName, paramValue);
         if(modulateMusic) ambienceManager.SetMusicParameter(parameterName, paramValue);
         if(modulateTraffic) ambienceManager.SetTrafficParameter(parameterName, paramValue);
+        if(modulateBirds) ambienceManager.SetBirdsParameter(parameterName, paramValue);
     }
 }
